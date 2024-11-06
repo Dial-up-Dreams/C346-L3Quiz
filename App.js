@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
 import RNPickerSelect from 'react-native-picker-select';
-import {Button, Text, ScrollView, Alert, Image} from "react-native";
+import {Button, Text, ScrollView, Alert, Image, StyleSheet} from "react-native";
 import {useState} from "react";
 
 const App = () => {
@@ -9,10 +9,12 @@ const App = () => {
     const [ansTh , SetATH] = useState("");
     return(
         <ScrollView>
-            <Text>What number is this?</Text>
+            <StatusBar hidden={true}/>
+            <Text style={styles.Title}>Are You Colour Blind?</Text>
+            <Text style={styles.Question}>What number is this?</Text>
             <Image
                 source={require('./img/74.png')}
-                style={{width:400, height:200}}
+                style={styles.Images}
                 resizeMode="contain"
             />
             <RNPickerSelect
@@ -25,10 +27,10 @@ const App = () => {
                 ]}
             />
 
-            <Text>What number is this?</Text>
+            <Text style={styles.Question}>What number is this?</Text>
             <Image
                 source={require('./img/42.png')}
-                style={{width:400, height:200}}
+                style={styles.Images}
                 resizeMode="contain"
             />
             <RNPickerSelect
@@ -41,10 +43,10 @@ const App = () => {
                 ]}
             />
 
-            <Text>What number is this?</Text>
+            <Text style={styles.Question}>What number is this?</Text>
             <Image
                 source={require('./img/15.png')}
-                style={{width:400, height:200}}
+                style={styles.Images}
                 resizeMode="contain"
             />
             <RNPickerSelect
@@ -86,5 +88,36 @@ const App = () => {
 
     );
 };
+
+const styles = StyleSheet.create({
+    Title:{
+        fontSize:30,
+        fontWeight:'bold',
+        textAlign:'center',
+        paddingTop:10,
+        paddingBottom:15,
+        fontFamily:'monospace'
+    },
+
+    Question:{
+        fontSize:20,
+        textAlign:'center',
+        paddingBottom:5,
+        backgroundColor:'lightblue',
+        borderWidth:1,
+        borderStyle:'dashed',
+        borderColor:'navyblue',
+        fontFamily:'monospace'
+
+    },
+
+    Images:{
+        width:250,
+        height:250,
+        alignSelf:'center'
+    },
+
+
+})
 
 export default App;
